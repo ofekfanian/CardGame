@@ -1,4 +1,3 @@
-```markdown
 # 🃏 CardGame — War Card Game
 
 > iOS card game assignment built with UIKit · Landscape · 3 screens
@@ -69,4 +68,3 @@ imgCard.layer.cornerRadius = imgCard.frame.width * 0.07
 4. **⌘R**
 
 > For location testing — use **Xcode Simulator → Features → Location**
-```

@@ -1,36 +1,105 @@
-# 🃏 CardGame — War Card Game
+<div align="center">
 
-> iOS card game assignment built with UIKit · Landscape · 3 screens
+# 🃏 CardGame
+### War Card Game · iOS Assignment 1
 
-![Swift](https://img.shields.io/badge/Swift-5.9-orange?style=flat-square&logo=swift)
-![Platform](https://img.shields.io/badge/Platform-iOS-blue?style=flat-square&logo=apple)
-![Xcode](https://img.shields.io/badge/Xcode-15-147EFB?style=flat-square&logo=xcode)
-![Assignment](https://img.shields.io/badge/Assignment-1-green?style=flat-square)
+<img src="https://img.shields.io/badge/Swift-5.9-F05138?style=for-the-badge&logo=swift&logoColor=white"/>
+<img src="https://img.shields.io/badge/iOS-UIKit-147EFB?style=for-the-badge&logo=apple&logoColor=white"/>
+<img src="https://img.shields.io/badge/Xcode-15-147EFB?style=for-the-badge&logo=xcode&logoColor=white"/>
+<img src="https://img.shields.io/badge/Assignment-1-27AE60?style=for-the-badge"/>
+
+<br/>
+
+> Built with **UIKit** · **Landscape** · **CoreLocation** · **3 Screens**
+
+</div>
 
 ---
 
 ## 🎬 Demo
 
+<div align="center">
+
 https://github.com/user-attachments/assets/d468fe3a-533c-419b-8633-4c934357bc83
+
+</div>
 
 ---
 
 ## 📱 Screens
 
-| Menu | Game | Summary |
-|------|------|---------|
+<div align="center">
+
+| 🏠 Menu | 🎮 Game | 🏆 Summary |
+|:-------:|:-------:|:----------:|
 | Name input + location detection | 10 auto rounds with 5s timer | Winner & final score |
+| East / West side assignment | Card flip animations | Back to menu |
+
+</div>
 
 ---
 
 ## ⚙️ Features
 
-- 📍 **Location-based sides** — East of longitude `34.817549168324334` → East Side (red deck), West → black deck
-- 🃏 **Separate decks** — red suits (hearts & diamonds) vs black suits (spades & clubs)
-- ⏱️ **Auto timer** — 5 seconds per round, no buttons needed
-- 🏆 **Scoring** — highest card wins the round · Ace = 14 (strongest)
-- 💾 **Persistent name** — saved via UserDefaults across sessions
-- 🔁 **Flip animation** — UIView transition on every card reveal
+<table>
+<tr>
+<td>
+
+**🗺️ Location**
+- Detects longitude on launch
+- East `>` 34.8175 → East Side
+- West `<` 34.8175 → West Side
+- Stops updates after first fix
+
+</td>
+<td>
+
+**🃏 Decks**
+- East Side → red deck (♥ ♦)
+- West Side → black deck (♠ ♣)
+- Ace = 14 (strongest card)
+- Decks shuffled on init
+
+</td>
+<td>
+
+**🎮 Game**
+- 10 rounds, no buttons
+- 5s countdown per round
+- Higher card wins points
+- Tie → no points awarded
+
+</td>
+</tr>
+<tr>
+<td>
+
+**💾 Persistence**
+- Name saved via UserDefaults
+- Restored on next launch
+- English alphanumeric only
+
+</td>
+<td>
+
+**🔁 Animations**
+- UIView flip transition
+- Card back → face reveal
+- Spring score animation
+- Fade-in on summary screen
+
+</td>
+<td>
+
+**🏆 Result**
+- Winner with final score
+- Tie → PC (house) wins
+- `"Winner: [name]"`
+- `"score: [value]"`
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -38,33 +107,49 @@ https://github.com/user-attachments/assets/d468fe3a-533c-419b-8633-4c934357bc83
 
 ```
 CardGame/
-├── ViewController.swift       # Menu screen
-├── GameController.swift       # Game screen
-├── SummaryController.swift    # Summary screen
-├── GameManager.swift          # Deck logic
-├── LocationManager.swift      # CoreLocation wrapper
-├── Extensions.swift           # Shared helpers
-└── card.swift                 # Card struct
+│
+├── 📄 ViewController.swift       # Menu screen
+├── 📄 GameController.swift       # Game screen — 10 rounds, timer, scoring
+├── 📄 SummaryController.swift    # Summary screen — winner display
+│
+├── 📄 GameManager.swift          # Deck builder — red & black separate
+├── 📄 LocationManager.swift      # CoreLocation wrapper + protocol
+├── 📄 Extensions.swift           # Shared UI helpers (lecturer style)
+└── 📄 card.swift                 # Card struct { value, imageName }
 ```
 
 ---
 
 ## 📐 CxR Pattern
 
-Corner radius is always set **proportionally** in `viewDidLayoutSubviews`:
+> The lecturer's key principle — corner radius always set **proportionally** at layout time, never hardcoded.
 
 ```swift
-btn.layer.cornerRadius = btn.frame.height * 0.35   // C × R
-imgCard.layer.cornerRadius = imgCard.frame.width * 0.07
+// viewDidLayoutSubviews — never in viewDidLoad
+btn.layer.cornerRadius   = btn.frame.height   * 0.35  // C × R (landscape)
+card.layer.cornerRadius  = card.frame.width   * 0.07  // C × C (portrait)
+
+// Card aspect ratio: height = width × 1.4  (R/C standard card ratio)
 ```
 
 ---
 
 ## 🚀 Run
 
-1. Clone the repo
-2. Open `CardGame.xcodeproj`
-3. Select a simulator or device
-4. **⌘R**
+```bash
+git clone https://github.com/ofekfanian/CardGame.git
+open CardGame.xcodeproj
+```
 
-> For location testing — use **Xcode Simulator → Features → Location**
+Then press **⌘R** in Xcode.
+
+> 📍 For location — **Simulator → Features → Location → Custom Location**
+> Use longitude `> 34.8175` for East Side, `< 34.8175` for West Side.
+
+---
+
+<div align="center">
+
+Made with ❤️ · Afeka College · iOS Development
+
+</div>

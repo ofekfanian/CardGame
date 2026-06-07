@@ -1,24 +1,303 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nav-001">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+
+        <!-- Navigation Controller -->
+        <scene sceneID="nav-scene-001">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <navigationController id="nav-001" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nav-bar-001">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vc-menu-001" kind="relationship" relationship="rootViewController" id="nav-root-001"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nav-fr-001" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+
+        <!-- Menu Screen -->
+        <scene sceneID="vc-menu-scene">
+            <objects>
+                <viewController id="vc-menu-001" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <view key="view" contentMode="scaleToFill" id="vc-menu-view">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-name-001">
+                                <rect key="frame" x="356" y="14" width="100" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Insert name"/>
+                                <connections>
+                                    <action selector="btnInsertNameClicked:" destination="vc-menu-001" eventType="touchUpInside" id="btn-name-action"/>
+                                </connections>
+                            </button>
+
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="globe_west" translatesAutoresizingMaskIntoConstraints="NO" id="img-west-001">
+                                <rect key="frame" x="50" y="108" width="130" height="130"/>
+                            </imageView>
+
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="globe_east" translatesAutoresizingMaskIntoConstraints="NO" id="img-east-001">
+                                <rect key="frame" x="632" y="108" width="130" height="130"/>
+                            </imageView>
+
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi Player" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-name-001">
+                                <rect key="frame" x="256" y="148" width="300" height="44"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-side-001">
+                                <rect key="frame" x="256" y="200" width="300" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-start-001">
+                                <rect key="frame" x="316" y="309" width="180" height="48"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="START">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnStartClicked:" destination="vc-menu-001" eventType="touchUpInside" id="btn-start-action"/>
+                                </connections>
+                            </button>
+
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="menu-safeArea"/>
+                        <color key="backgroundColor" red="0.04" green="0.04" blue="0.09" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="btn-name-001" firstAttribute="centerX" secondItem="vc-menu-view" secondAttribute="centerX" id="c1"/>
+                            <constraint firstItem="btn-name-001" firstAttribute="top" secondItem="menu-safeArea" secondAttribute="top" constant="12" id="c2"/>
+
+                            <constraint firstItem="img-west-001" firstAttribute="leading" secondItem="menu-safeArea" secondAttribute="leading" constant="30" id="c6"/>
+                            <constraint firstItem="img-west-001" firstAttribute="centerY" secondItem="vc-menu-view" secondAttribute="centerY" constant="-14" id="c7"/>
+                            <!-- globe = 35% of screen height, square (R=C) -->
+                            <constraint firstItem="img-west-001" firstAttribute="height" secondItem="vc-menu-view" secondAttribute="height" multiplier="0.35" id="c8"/>
+                            <constraint firstItem="img-west-001" firstAttribute="width" secondItem="img-west-001" secondAttribute="height" multiplier="1.0" id="c9"/>
+
+                            <constraint firstItem="img-east-001" firstAttribute="trailing" secondItem="menu-safeArea" secondAttribute="trailing" constant="-30" id="c12"/>
+                            <constraint firstItem="img-east-001" firstAttribute="centerY" secondItem="vc-menu-view" secondAttribute="centerY" constant="-14" id="c13"/>
+                            <!-- globe = 35% of screen height, square (R=C) -->
+                            <constraint firstItem="img-east-001" firstAttribute="height" secondItem="vc-menu-view" secondAttribute="height" multiplier="0.35" id="c14"/>
+                            <constraint firstItem="img-east-001" firstAttribute="width" secondItem="img-east-001" secondAttribute="height" multiplier="1.0" id="c15"/>
+
+                            <constraint firstItem="lbl-name-001" firstAttribute="centerX" secondItem="vc-menu-view" secondAttribute="centerX" id="c3"/>
+                            <constraint firstItem="lbl-name-001" firstAttribute="centerY" secondItem="vc-menu-view" secondAttribute="centerY" constant="-22" id="c4"/>
+                            <constraint firstItem="lbl-name-001" firstAttribute="width" constant="300" id="c5"/>
+
+                            <constraint firstItem="lbl-side-001" firstAttribute="centerX" secondItem="vc-menu-view" secondAttribute="centerX" id="c18"/>
+                            <constraint firstItem="lbl-side-001" firstAttribute="top" secondItem="lbl-name-001" secondAttribute="bottom" constant="6" id="c19"/>
+                            <constraint firstItem="lbl-side-001" firstAttribute="width" constant="300" id="c24"/>
+
+                            <constraint firstItem="btn-start-001" firstAttribute="centerX" secondItem="vc-menu-view" secondAttribute="centerX" id="c20"/>
+                            <constraint firstItem="btn-start-001" firstAttribute="bottom" secondItem="menu-safeArea" secondAttribute="bottom" constant="-18" id="c21"/>
+                            <!-- button width = 25% of screen width (CxR) -->
+                            <constraint firstItem="btn-start-001" firstAttribute="width" secondItem="vc-menu-view" secondAttribute="width" multiplier="0.25" id="c22"/>
+                            <constraint firstItem="btn-start-001" firstAttribute="height" constant="48" id="c23"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="menu-navItem" hidesBackButton="YES"/>
+                    <connections>
+                        <outlet property="lblName" destination="lbl-name-001" id="outlet-lblName"/>
+                        <outlet property="lblSide" destination="lbl-side-001" id="outlet-lblSide"/>
+                        <outlet property="btnStart" destination="btn-start-001" id="outlet-btnStart"/>
+                        <segue destination="vc-game-001" kind="show" identifier="toGame" id="segue-toGame"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vc-menu-fr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+
+        <!-- Game Screen -->
+        <scene sceneID="vc-game-scene">
+            <objects>
+                <viewController id="vc-game-001" customClass="GameController" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <view key="view" contentMode="scaleToFill" id="vc-game-view">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-pname-001">
+                                <rect key="frame" x="24" y="18" width="110" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-pscore-001">
+                                <rect key="frame" x="24" y="40" width="90" height="56"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="54"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PC" textAlignment="right" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-pcname-001">
+                                <rect key="frame" x="678" y="18" width="110" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-pcscore-001">
+                                <rect key="frame" x="698" y="40" width="90" height="56"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="54"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="img-pcard-001">
+                                <rect key="frame" x="130" y="68" width="165" height="230"/>
+                            </imageView>
+
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="img-pccard-001">
+                                <rect key="frame" x="517" y="68" width="165" height="230"/>
+                            </imageView>
+
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stopwatch" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-clock-001">
+                                <rect key="frame" x="391" y="110" width="30" height="30"/>
+                            </imageView>
+
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-timer-001">
+                                <rect key="frame" x="378" y="146" width="56" height="56"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="game-safeArea"/>
+                        <color key="backgroundColor" red="0.04" green="0.04" blue="0.09" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lbl-pname-001" firstAttribute="leading" secondItem="game-safeArea" secondAttribute="leading" constant="24" id="gc1"/>
+                            <constraint firstItem="lbl-pname-001" firstAttribute="top" secondItem="game-safeArea" secondAttribute="top" constant="16" id="gc2"/>
+
+                            <constraint firstItem="lbl-pscore-001" firstAttribute="leading" secondItem="lbl-pname-001" secondAttribute="leading" id="gc3"/>
+                            <constraint firstItem="lbl-pscore-001" firstAttribute="top" secondItem="lbl-pname-001" secondAttribute="bottom" constant="2" id="gc4"/>
+
+                            <constraint firstItem="lbl-pcname-001" firstAttribute="trailing" secondItem="game-safeArea" secondAttribute="trailing" constant="-24" id="gc5"/>
+                            <constraint firstItem="lbl-pcname-001" firstAttribute="top" secondItem="game-safeArea" secondAttribute="top" constant="16" id="gc6"/>
+
+                            <constraint firstItem="lbl-pcscore-001" firstAttribute="trailing" secondItem="lbl-pcname-001" secondAttribute="trailing" id="gc7"/>
+                            <constraint firstItem="lbl-pcscore-001" firstAttribute="top" secondItem="lbl-pcname-001" secondAttribute="bottom" constant="2" id="gc8"/>
+
+                            <!-- width = 20% of screen width (CxR multiplier) -->
+                            <constraint firstItem="img-pcard-001" firstAttribute="centerX" secondItem="vc-game-view" secondAttribute="centerX" multiplier="0.5" id="gc9"/>
+                            <constraint firstItem="img-pcard-001" firstAttribute="centerY" secondItem="vc-game-view" secondAttribute="centerY" constant="14" id="gc10"/>
+                            <constraint firstItem="img-pcard-001" firstAttribute="width" secondItem="vc-game-view" secondAttribute="width" multiplier="0.2" id="gc11"/>
+                            <!-- height = width × 1.4 (standard card aspect ratio R/C) -->
+                            <constraint firstItem="img-pcard-001" firstAttribute="height" secondItem="img-pcard-001" secondAttribute="width" multiplier="1.4" id="gc12"/>
+
+                            <constraint firstItem="img-pccard-001" firstAttribute="centerX" secondItem="vc-game-view" secondAttribute="centerX" multiplier="1.5" id="gc13"/>
+                            <constraint firstItem="img-pccard-001" firstAttribute="centerY" secondItem="vc-game-view" secondAttribute="centerY" constant="14" id="gc14"/>
+                            <constraint firstItem="img-pccard-001" firstAttribute="width" secondItem="vc-game-view" secondAttribute="width" multiplier="0.2" id="gc15"/>
+                            <constraint firstItem="img-pccard-001" firstAttribute="height" secondItem="img-pccard-001" secondAttribute="width" multiplier="1.4" id="gc16"/>
+
+                            <!-- timer icon square (R=C), 4% of width -->
+                            <constraint firstItem="lbl-clock-001" firstAttribute="centerX" secondItem="vc-game-view" secondAttribute="centerX" id="gc17"/>
+                            <constraint firstItem="lbl-clock-001" firstAttribute="top" secondItem="game-safeArea" secondAttribute="top" constant="24" id="gc18"/>
+                            <constraint firstItem="lbl-clock-001" firstAttribute="width" secondItem="vc-game-view" secondAttribute="width" multiplier="0.04" id="gc17b"/>
+                            <constraint firstItem="lbl-clock-001" firstAttribute="height" secondItem="lbl-clock-001" secondAttribute="width" multiplier="1.0" id="gc18b"/>
+
+                            <constraint firstItem="lbl-timer-001" firstAttribute="centerX" secondItem="vc-game-view" secondAttribute="centerX" id="gc19"/>
+                            <constraint firstItem="lbl-timer-001" firstAttribute="top" secondItem="lbl-clock-001" secondAttribute="bottom" constant="6" id="gc20"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="game-navItem" hidesBackButton="YES"/>
+                    <connections>
+                        <outlet property="lblPlayerName" destination="lbl-pname-001" id="go1"/>
+                        <outlet property="lblPCName" destination="lbl-pcname-001" id="go2"/>
+                        <outlet property="lblPlayerScore" destination="lbl-pscore-001" id="go3"/>
+                        <outlet property="lblPCScore" destination="lbl-pcscore-001" id="go4"/>
+                        <outlet property="imgPlayerCard" destination="img-pcard-001" id="go5"/>
+                        <outlet property="imgPCCard" destination="img-pccard-001" id="go6"/>
+                        <outlet property="lblTimer" destination="lbl-timer-001" id="go7"/>
+                        <segue destination="vc-summary-001" kind="show" identifier="toSummary" id="segue-toSummary"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vc-game-fr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+
+        <!-- Summary Screen -->
+        <scene sceneID="vc-summary-scene">
+            <objects>
+                <viewController id="vc-summary-001" customClass="SummaryController" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <view key="view" contentMode="scaleToFill" id="vc-summary-view">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner: " textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-winner-001">
+                                <rect key="frame" x="106" y="100" width="600" height="56"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score: 0" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-score-001">
+                                <rect key="frame" x="156" y="170" width="500" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-back-001">
+                                <rect key="frame" x="316" y="309" width="180" height="48"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="BACK TO MENU">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnBackClicked:" destination="vc-summary-001" eventType="touchUpInside" id="btn-back-action"/>
+                                </connections>
+                            </button>
+
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="summary-safeArea"/>
+                        <color key="backgroundColor" red="0.04" green="0.04" blue="0.09" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lbl-winner-001" firstAttribute="centerX" secondItem="vc-summary-view" secondAttribute="centerX" id="sc1"/>
+                            <constraint firstItem="lbl-winner-001" firstAttribute="centerY" secondItem="vc-summary-view" secondAttribute="centerY" constant="-46" id="sc2"/>
+                            <constraint firstItem="lbl-winner-001" firstAttribute="width" constant="600" id="sc1b"/>
+
+                            <constraint firstItem="lbl-score-001" firstAttribute="centerX" secondItem="vc-summary-view" secondAttribute="centerX" id="sc3"/>
+                            <constraint firstItem="lbl-score-001" firstAttribute="top" secondItem="lbl-winner-001" secondAttribute="bottom" constant="14" id="sc4"/>
+                            <constraint firstItem="lbl-score-001" firstAttribute="width" constant="500" id="sc3b"/>
+
+                            <constraint firstItem="btn-back-001" firstAttribute="centerX" secondItem="vc-summary-view" secondAttribute="centerX" id="sc5"/>
+                            <constraint firstItem="btn-back-001" firstAttribute="bottom" secondItem="summary-safeArea" secondAttribute="bottom" constant="-18" id="sc6"/>
+                            <!-- button width = 25% of screen width (CxR) -->
+                            <constraint firstItem="btn-back-001" firstAttribute="width" secondItem="vc-summary-view" secondAttribute="width" multiplier="0.25" id="sc7"/>
+                            <constraint firstItem="btn-back-001" firstAttribute="height" constant="48" id="sc8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="summary-navItem" hidesBackButton="YES"/>
+                    <connections>
+                        <outlet property="lblWinner" destination="lbl-winner-001" id="so1"/>
+                        <outlet property="lblScore" destination="lbl-score-001" id="so2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vc-summary-fr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+
     </scenes>
 </document>

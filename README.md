@@ -70,8 +70,6 @@ CardGame/
 3. Select a simulator or physical device
 4. Hit **⌘R** to build and run
 
-> 📍 For location testing — **Simulator → Features → Location → Custom Location**
-> Use longitude `> 34.8175` for East Side, `< 34.8175` for West Side.
 
 ---
 

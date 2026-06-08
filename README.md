@@ -1,44 +1,80 @@
-# CardGame — War Card Game
+<div align="center">
 
-![Swift](https://img.shields.io/badge/Swift-5.9-orange?style=flat-square&logo=swift)
-![Platform](https://img.shields.io/badge/Platform-iOS-blue?style=flat-square&logo=apple)
-![Assignment](https://img.shields.io/badge/Assignment-1-green?style=flat-square)
+# 🃏 CardGame
 
-iOS card game built with UIKit. Landscape layout, 3 screens.
+### *Flip your cards, beat your opponent, claim victory!*
+
+> A location-based War card game for iOS featuring flip animations, GPS side assignment, and a 10-round countdown system.
+
+<p>
+  <img src="https://img.shields.io/badge/Platform-iOS-147EFB?style=flat&logo=apple&logoColor=white" alt="iOS" />
+  <img src="https://img.shields.io/badge/Language-Swift-F05138?style=flat&logo=swift&logoColor=white" alt="Swift" />
+  <img src="https://img.shields.io/badge/UI-UIKit-147EFB?style=flat" alt="UIKit" />
+  <img src="https://img.shields.io/badge/IDE-Xcode-147EFB?style=flat&logo=xcode&logoColor=white" alt="Xcode" />
+</p>
+
+</div>
 
 ---
 
-## Demo
+## 📌 About The Project
+
+**CardGame** is a two-player War-style card game where your side of the board is determined by your real-world location. Players on the East side get red cards, West side gets black cards. Each round, two cards are revealed automatically — the stronger card wins points. After 10 rounds, the winner is displayed on the summary screen.
+
+---
+
+## 🎬 Demo
 
 https://github.com/user-attachments/assets/d468fe3a-533c-419b-8633-4c934357bc83
 
 ---
 
-## How It Works
+## ✨ Key Features
 
-- On launch the app detects your location — East of longitude `34.817549168324334` plays with red cards, West plays with black cards
-- The game runs 10 automatic rounds with a 5 second timer each round
-- Higher card wins the round · Ace = 14 · Tie = no points
-- After 10 rounds the summary screen shows the winner
-
----
-
-## Screens
-
-| Menu | Game | Summary |
-|------|------|---------|
-| Name input + location detection | 10 rounds with 5s timer | Winner & final score |
+- **📍 Location-Based Sides** — Uses CoreLocation to detect your longitude. East of `34.817549168324334` → red deck (♥ ♦), West → black deck (♠ ♣)
+- **🃏 Automatic Rounds** — No buttons on the game screen. Cards flip every 5 seconds automatically for 10 rounds
+- **🏆 Scoring System** — Higher card wins the round and earns its value as points. Ace = 14 (strongest). Tie = no points
+- **🔁 Flip Animations** — Smooth `UIView` transition animations on every card reveal and hide
+- **💾 Persistent Name** — Player name saved via `UserDefaults` and restored on next launch
+- **🎯 CxR Pattern** — All corner radii set proportionally in `viewDidLayoutSubviews` per lecturer spec
 
 ---
 
-## Architecture
+## 📱 Screens
+
+| 🏠 Menu | 🎮 Game | 🏆 Summary |
+|:-------:|:-------:|:----------:|
+| Name input + location detection | 10 auto rounds · 5s timer per round | Winner with final score |
+
+---
+
+## 🏗️ Architecture
 
 ```
-ViewController.swift       — Menu
-GameController.swift       — Game
-SummaryController.swift    — Summary
-GameManager.swift          — Deck logic
-LocationManager.swift      — CoreLocation
-Extensions.swift           — Shared helpers
-card.swift                 — Card struct
+CardGame/
+├── ViewController.swift       — Menu screen
+├── GameController.swift       — Game screen (rounds, timer, scoring)
+├── SummaryController.swift    — Summary screen (winner display)
+├── GameManager.swift          — Deck builder, red & black decks
+├── LocationManager.swift      — CoreLocation wrapper + delegate protocol
+├── Extensions.swift           — Shared UI helpers
+└── card.swift                 — Card struct { value, imageName }
 ```
+
+---
+
+## ⚙️ How to Run
+
+1. Clone this repository
+2. Open `CardGame.xcodeproj` in **Xcode**
+3. Select a simulator or physical device
+4. Hit **⌘R** to build and run
+
+> 📍 For location testing — **Simulator → Features → Location → Custom Location**
+> Use longitude `> 34.8175` for East Side, `< 34.8175` for West Side.
+
+---
+
+<div align="center">
+  <b>Created by Ofek Fanian</b>
+</div>

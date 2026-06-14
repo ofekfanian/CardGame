@@ -45,7 +45,10 @@ class GameController: UIViewController {
         imgPCCard.contentMode = .scaleAspectFill
         imgPCCard.clipsToBounds = true
 
+        registerLifecycleObservers()
+
         updateUI()
+        SoundManager.shared.playBackground()
         startRound()
     }
 
@@ -57,18 +60,48 @@ class GameController: UIViewController {
         imgPCCard.layer.cornerRadius = r
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+        SoundManager.shared.stopBackground()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    // MARK: Lifecycle observers
+    private func registerLifecycleObservers() {
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(appDidBackground),
+            name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(appWillForeground),
+            name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+
+    @objc private func appDidBackground() {
+        timer?.invalidate()
+        SoundManager.shared.pauseBackground()
+    }
+
+    @objc private func appWillForeground() {
+        SoundManager.shared.resumeBackground()
+        startTimer()
+    }
+
     private func setupUI() {
         lblPlayerName.font      = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        lblPlayerName.textColor = UIColor(red: 0.35, green: 0.35, blue: 0.45, alpha: 1)
+        lblPlayerName.textColor = .secondaryLabel
 
         lblPCName.font      = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        lblPCName.textColor = UIColor(red: 0.35, green: 0.35, blue: 0.45, alpha: 1)
+        lblPCName.textColor = .secondaryLabel
 
         lblPlayerScore.font      = UIFont.systemFont(ofSize: 52, weight: .heavy)
-        lblPlayerScore.textColor = UIColor(red: 0.13, green: 0.13, blue: 0.22, alpha: 1)
+        lblPlayerScore.textColor = .label
 
         lblPCScore.font      = UIFont.systemFont(ofSize: 52, weight: .heavy)
-        lblPCScore.textColor = UIColor(red: 0.13, green: 0.13, blue: 0.22, alpha: 1)
+        lblPCScore.textColor = .label
 
         lblTimer.font      = UIFont.monospacedDigitSystemFont(ofSize: 32, weight: .bold)
         lblTimer.textColor = UIColor(red: 0.22, green: 0.38, blue: 0.76, alpha: 1)
@@ -113,10 +146,12 @@ class GameController: UIViewController {
         currentPlayerCard = playerCard
         currentPCCard = pcCard
 
+        SoundManager.shared.playFlip()
         flipToBack(imgPlayerCard, back: playerBack, flipDirection: .transitionFlipFromRight)
         flipToBack(imgPCCard,     back: pcBack,     flipDirection: .transitionFlipFromLeft)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            SoundManager.shared.playFlip()
             self.flipToFace(self.imgPlayerCard, card: playerCard, flipDirection: .transitionFlipFromLeft)
             self.flipToFace(self.imgPCCard,     card: pcCard,     flipDirection: .transitionFlipFromRight)
             self.timeLeft = 5
@@ -176,6 +211,8 @@ class GameController: UIViewController {
 
     private func gameOver() {
         timer?.invalidate()
+        SoundManager.shared.stopBackground()
+        SoundManager.shared.playWin()
         performSegue(withIdentifier: "toSummary", sender: self)
     }
 

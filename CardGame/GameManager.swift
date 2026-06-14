@@ -10,7 +10,7 @@ class GameManager {
     private let ranks = ["two", "three", "four", "five", "six", "seven",
                          "eight", "nine", "ten", "jack", "queen", "king", "ace"]
 
-    // cards with no asset present in the catalog
+    // missing assets
     private let missing: Set<String> = [
         "two of diamonds", "ace of diamonds",
         "nine of hearts", "ten of hearts", "jack of hearts"

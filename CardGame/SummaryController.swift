@@ -32,11 +32,11 @@ class SummaryController: UIViewController {
 
     private func setupUI() {
         lblWinner.font      = UIFont.systemFont(ofSize: 34, weight: .heavy)
-        lblWinner.textColor = UIColor(red: 0.13, green: 0.13, blue: 0.22, alpha: 1)
+        lblWinner.textColor = .label
         lblWinner.textAlignment = .center
 
         lblScore.font      = UIFont.systemFont(ofSize: 22, weight: .regular)
-        lblScore.textColor = UIColor(red: 0.40, green: 0.40, blue: 0.50, alpha: 1)
+        lblScore.textColor = .secondaryLabel
         lblScore.textAlignment = .center
 
         for sv in view.subviews {
@@ -87,7 +87,6 @@ class SummaryController: UIViewController {
         lblWinner.text = "Winner: \(winner)"
         lblScore.text  = "score: \(score)"
 
-        // fade in
         lblWinner.alpha = 0
         lblScore.alpha  = 0
         UIView.animate(withDuration: 0.5, delay: 0.1) { self.lblWinner.alpha = 1 }

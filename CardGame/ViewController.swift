@@ -1,5 +1,4 @@
 import UIKit
-import CoreLocation
 
 // MARK: ViewController
 class ViewController: UIViewController {
@@ -42,10 +41,10 @@ class ViewController: UIViewController {
 
     private func setupUI() {
         lblName.font      = UIFont.systemFont(ofSize: 28, weight: .bold)
-        lblName.textColor = UIColor(red: 0.13, green: 0.13, blue: 0.22, alpha: 1)
+        lblName.textColor = .label
 
         lblSide.font      = UIFont.systemFont(ofSize: 14, weight: .medium)
-        lblSide.textColor = UIColor(red: 0.40, green: 0.40, blue: 0.50, alpha: 1)
+        lblSide.textColor = .secondaryLabel
 
         styleButton(btnStart)
     }

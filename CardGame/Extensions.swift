@@ -12,7 +12,6 @@ extension UIViewController {
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         btn.clipsToBounds = true
-        // corner radius is applied proportionally in viewDidLayoutSubviews (C × R)
     }
 
     func showToast(message: String, duration: Double = 2.0) {

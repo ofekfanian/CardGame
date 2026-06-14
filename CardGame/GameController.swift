@@ -45,7 +45,7 @@ class GameController: UIViewController {
         imgPCCard.contentMode = .scaleAspectFill
         imgPCCard.clipsToBounds = true
 
-        registerLifecycleObservers()
+        setupObservers()
 
         updateUI()
         SoundManager.shared.playBackground()
@@ -54,8 +54,7 @@ class GameController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // card corner radius proportional to card width (C × R)
-        let r = imgPlayerCard.frame.width * 0.07
+        let r = imgPlayerCard.frame.width * 0.07  // C × R
         imgPlayerCard.layer.cornerRadius = r
         imgPCCard.layer.cornerRadius = r
     }
@@ -70,8 +69,8 @@ class GameController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
 
-    // MARK: Lifecycle observers
-    private func registerLifecycleObservers() {
+    // MARK: Lifecycle
+    private func setupObservers() {
         NotificationCenter.default.addObserver(self,
             selector: #selector(appDidBackground),
             name: UIApplication.didEnterBackgroundNotification, object: nil)
@@ -86,6 +85,7 @@ class GameController: UIViewController {
     }
 
     @objc private func appWillForeground() {
+        guard roundCount < 10 else { return }
         SoundManager.shared.resumeBackground()
         startTimer()
     }
@@ -116,7 +116,6 @@ class GameController: UIViewController {
         lblTimer.text       = "\(timeLeft)"
     }
 
-    // MARK: Card back helpers
     private var playerBack: UIImage? { playerDrawsRed ? redBack   : blackBack }
     private var pcBack:     UIImage? { playerDrawsRed ? blackBack : redBack   }
 

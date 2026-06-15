@@ -202,12 +202,12 @@
                             <constraint firstItem="lbl-pcscore-001" firstAttribute="trailing" secondItem="lbl-pcname-001" secondAttribute="trailing" id="gc7"/>
                             <constraint firstItem="lbl-pcscore-001" firstAttribute="top" secondItem="lbl-pcname-001" secondAttribute="bottom" constant="2" id="gc8"/>
 
-                            <constraint firstItem="img-pcard-001" firstAttribute="centerX" secondItem="vc-game-view" secondAttribute="centerX" multiplier="0.5" id="gc9"/>
+                            <constraint firstItem="img-pcard-001" firstAttribute="leading" secondItem="vc-game-view" secondAttribute="trailing" multiplier="0.15" id="gc9"/>
                             <constraint firstItem="img-pcard-001" firstAttribute="centerY" secondItem="vc-game-view" secondAttribute="centerY" constant="14" id="gc10"/>
                             <constraint firstItem="img-pcard-001" firstAttribute="width" secondItem="vc-game-view" secondAttribute="width" multiplier="0.2" id="gc11"/>
                             <constraint firstItem="img-pcard-001" firstAttribute="height" secondItem="img-pcard-001" secondAttribute="width" multiplier="1.4" id="gc12"/>
 
-                            <constraint firstItem="img-pccard-001" firstAttribute="centerX" secondItem="vc-game-view" secondAttribute="centerX" multiplier="1.5" id="gc13"/>
+                            <constraint firstItem="img-pccard-001" firstAttribute="leading" secondItem="vc-game-view" secondAttribute="trailing" multiplier="0.65" id="gc13"/>
                             <constraint firstItem="img-pccard-001" firstAttribute="centerY" secondItem="vc-game-view" secondAttribute="centerY" constant="14" id="gc14"/>
                             <constraint firstItem="img-pccard-001" firstAttribute="width" secondItem="vc-game-view" secondAttribute="width" multiplier="0.2" id="gc15"/>
                             <constraint firstItem="img-pccard-001" firstAttribute="height" secondItem="img-pccard-001" secondAttribute="width" multiplier="1.4" id="gc16"/>

@@ -6,6 +6,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblSide: UILabel!
     @IBOutlet weak var btnStart: UIButton!
+    @IBOutlet weak var switchDark: UISwitch!
 
     private var playerName = ""
     private var playerSide = ""
@@ -21,6 +22,10 @@ class ViewController: UIViewController {
         applyBackground()
         setupUI()
         btnStart.isEnabled = false
+
+        let isDark = UserDefaults.standard.bool(forKey: "darkMode")
+        switchDark.isOn = isDark
+        applyDarkMode(isDark)
 
         lm.callBackLM = self
 
@@ -46,6 +51,8 @@ class ViewController: UIViewController {
         lblSide.font      = UIFont.systemFont(ofSize: 14, weight: .medium)
         lblSide.textColor = .secondaryLabel
 
+        switchDark.onTintColor = UIColor(red: 0.22, green: 0.38, blue: 0.76, alpha: 1)
+
         styleButton(btnStart)
     }
 
@@ -53,6 +60,19 @@ class ViewController: UIViewController {
         lblName.text = playerName.isEmpty ? "Hi!" : "Hi \(playerName)"
         lblSide.text = playerSide.isEmpty ? "Detecting location…" : playerSide
         btnStart.isEnabled = !playerName.isEmpty && !playerSide.isEmpty
+    }
+
+    private func applyDarkMode(_ on: Bool) {
+        let style: UIUserInterfaceStyle = on ? .dark : .light
+        UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .forEach { $0.overrideUserInterfaceStyle = style }
+    }
+
+    @IBAction func switchDarkChanged(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "darkMode")
+        applyDarkMode(sender.isOn)
     }
 
     @IBAction func btnInsertNameClicked(_ sender: UIButton) {

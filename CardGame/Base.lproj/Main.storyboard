@@ -76,6 +76,13 @@
                                 </connections>
                             </button>
 
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sw-dark-001">
+                                <rect key="frame" x="724" y="10" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchDarkChanged:" destination="vc-menu-001" eventType="valueChanged" id="sw-dark-action"/>
+                                </connections>
+                            </switch>
+
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="menu-safeArea"/>
                         <color key="backgroundColor" red="0.04" green="0.04" blue="0.09" alpha="1" colorSpace="calibratedRGB"/>
@@ -105,6 +112,9 @@
                             <constraint firstItem="btn-start-001" firstAttribute="bottom" secondItem="menu-safeArea" secondAttribute="bottom" constant="-18" id="c21"/>
                             <constraint firstItem="btn-start-001" firstAttribute="width" secondItem="vc-menu-view" secondAttribute="width" multiplier="0.25" id="c22"/>
                             <constraint firstItem="btn-start-001" firstAttribute="height" constant="48" id="c23"/>
+
+                            <constraint firstItem="sw-dark-001" firstAttribute="trailing" secondItem="menu-safeArea" secondAttribute="trailing" constant="-16" id="sw1"/>
+                            <constraint firstItem="sw-dark-001" firstAttribute="top" secondItem="menu-safeArea" secondAttribute="top" constant="10" id="sw2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="menu-navItem" hidesBackButton="YES"/>
@@ -112,6 +122,7 @@
                         <outlet property="lblName" destination="lbl-name-001" id="outlet-lblName"/>
                         <outlet property="lblSide" destination="lbl-side-001" id="outlet-lblSide"/>
                         <outlet property="btnStart" destination="btn-start-001" id="outlet-btnStart"/>
+                        <outlet property="switchDark" destination="sw-dark-001" id="outlet-switchDark"/>
                         <segue destination="vc-game-001" kind="show" identifier="toGame" id="segue-toGame"/>
                     </connections>
                 </viewController>

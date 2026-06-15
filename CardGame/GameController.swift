@@ -42,10 +42,10 @@ class GameController: UIViewController {
 
         playerDrawsRed = (playerSide == "East Side")
 
-        imgPlayerCard.contentMode     = .scaleAspectFit
+        imgPlayerCard.contentMode     = .scaleAspectFill
         imgPlayerCard.clipsToBounds   = true
         imgPlayerCard.backgroundColor = .clear
-        imgPCCard.contentMode         = .scaleAspectFit
+        imgPCCard.contentMode         = .scaleAspectFill
         imgPCCard.clipsToBounds       = true
         imgPCCard.backgroundColor     = .clear
 

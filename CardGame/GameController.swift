@@ -35,15 +35,16 @@ class GameController: UIViewController {
 
         print("Hi Game!")
 
-        applyBackground()
         setupUI()
 
         playerDrawsRed = (playerSide == "East Side")
 
-        imgPlayerCard.contentMode = .scaleAspectFill
+        imgPlayerCard.contentMode  = .scaleAspectFit
         imgPlayerCard.clipsToBounds = true
-        imgPCCard.contentMode = .scaleAspectFill
+        imgPlayerCard.backgroundColor = .white
+        imgPCCard.contentMode  = .scaleAspectFit
         imgPCCard.clipsToBounds = true
+        imgPCCard.backgroundColor = .white
 
         setupObservers()
 
@@ -92,16 +93,16 @@ class GameController: UIViewController {
 
     private func setupUI() {
         lblPlayerName.font      = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        lblPlayerName.textColor = .secondaryLabel
+        lblPlayerName.textColor = UIColor(white: 0.6, alpha: 1)
 
         lblPCName.font      = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        lblPCName.textColor = .secondaryLabel
+        lblPCName.textColor = UIColor(white: 0.6, alpha: 1)
 
         lblPlayerScore.font      = UIFont.systemFont(ofSize: 52, weight: .heavy)
-        lblPlayerScore.textColor = .label
+        lblPlayerScore.textColor = .white
 
         lblPCScore.font      = UIFont.systemFont(ofSize: 52, weight: .heavy)
-        lblPCScore.textColor = .label
+        lblPCScore.textColor = .white
 
         lblTimer.font      = UIFont.monospacedDigitSystemFont(ofSize: 32, weight: .bold)
         lblTimer.textColor = UIColor(red: 0.22, green: 0.38, blue: 0.76, alpha: 1)
@@ -122,14 +123,14 @@ class GameController: UIViewController {
     private func flipToBack(_ imageView: UIImageView, back: UIImage?, flipDirection: UIView.AnimationOptions) {
         UIView.transition(with: imageView, duration: 0.35, options: flipDirection) {
             imageView.image = back
-            imageView.backgroundColor = .clear
+            imageView.backgroundColor = .white
         }
     }
 
     private func flipToFace(_ imageView: UIImageView, card: Card, flipDirection: UIView.AnimationOptions) {
         UIView.transition(with: imageView, duration: 0.35, options: flipDirection) {
             imageView.image = UIImage(named: card.imageName)
-            imageView.backgroundColor = .clear
+            imageView.backgroundColor = .white
         }
     }
 

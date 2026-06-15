@@ -7,6 +7,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblSide: UILabel!
     @IBOutlet weak var btnStart: UIButton!
     @IBOutlet weak var switchDark: UISwitch!
+    @IBOutlet weak var imgDarkIcon: UIImageView!
 
     private var playerName = ""
     private var playerSide = ""
@@ -41,7 +42,7 @@ class ViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        btnStart.layer.cornerRadius = btnStart.frame.height * 0.35  // C × R
+        btnStart.layer.cornerRadius = btnStart.frame.height * 0.35
     }
 
     private func setupUI() {
@@ -52,6 +53,7 @@ class ViewController: UIViewController {
         lblSide.textColor = .secondaryLabel
 
         switchDark.onTintColor = UIColor(red: 0.22, green: 0.38, blue: 0.76, alpha: 1)
+        imgDarkIcon.tintColor = .label
 
         styleButton(btnStart)
     }
@@ -64,10 +66,12 @@ class ViewController: UIViewController {
 
     private func applyDarkMode(_ on: Bool) {
         let style: UIUserInterfaceStyle = on ? .dark : .light
-        UIApplication.shared.connectedScenes
-            .compactMap { $0 as? UIWindowScene }
-            .flatMap { $0.windows }
-            .forEach { $0.overrideUserInterfaceStyle = style }
+        for scene in UIApplication.shared.connectedScenes {
+            guard let ws = scene as? UIWindowScene else { continue }
+            for window in ws.windows {
+                window.overrideUserInterfaceStyle = style
+            }
+        }
     }
 
     @IBAction func switchDarkChanged(_ sender: UISwitch) {

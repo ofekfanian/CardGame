@@ -59,7 +59,7 @@ class GameController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let r = imgPlayerCard.frame.width * 0.07  // C × R
+        let r = imgPlayerCard.frame.width * 0.07
         imgPlayerCard.layer.cornerRadius = r
         imgPCCard.layer.cornerRadius     = r
         playerGlass.layer.cornerRadius   = r

@@ -25,7 +25,7 @@ class SummaryController: UIViewController {
         super.viewDidLayoutSubviews()
         for sv in view.subviews {
             if let btn = sv as? UIButton {
-                btn.layer.cornerRadius = btn.frame.height * 0.35  // C × R
+                btn.layer.cornerRadius = btn.frame.height * 0.35
             }
         }
     }
@@ -79,13 +79,16 @@ class SummaryController: UIViewController {
         if playerScore > pcScore {
             winner = playerName
             score  = playerScore
-        } else {
+        } else if pcScore > playerScore {
             winner = "PC"
             score  = pcScore
+        } else {
+            winner = "It's a Tie!"
+            score  = playerScore
         }
 
         lblWinner.text = "Winner: \(winner)"
-        lblScore.text  = "score: \(score)"
+        lblScore.text  = "Score: \(score)"
 
         lblWinner.alpha = 0
         lblScore.alpha  = 0

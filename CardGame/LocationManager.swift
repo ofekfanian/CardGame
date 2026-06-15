@@ -25,6 +25,8 @@ extension LocationManager: CLLocationManagerDelegate {
         guard let location = locations.last else { return }
         callBackLM?.locationUpdated(longitude: location.coordinate.longitude)
     }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {}
 }
 
 // MARK: LocationCallBack

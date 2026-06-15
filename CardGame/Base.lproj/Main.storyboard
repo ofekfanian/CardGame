@@ -83,6 +83,10 @@
                                 </connections>
                             </switch>
 
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moon.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="img-dark-001">
+                                <rect key="frame" x="694" y="15" width="22" height="22"/>
+                            </imageView>
+
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="menu-safeArea"/>
                         <color key="backgroundColor" red="0.04" green="0.04" blue="0.09" alpha="1" colorSpace="calibratedRGB"/>
@@ -115,6 +119,11 @@
 
                             <constraint firstItem="sw-dark-001" firstAttribute="trailing" secondItem="menu-safeArea" secondAttribute="trailing" constant="-16" id="sw1"/>
                             <constraint firstItem="sw-dark-001" firstAttribute="top" secondItem="menu-safeArea" secondAttribute="top" constant="10" id="sw2"/>
+
+                            <constraint firstItem="img-dark-001" firstAttribute="trailing" secondItem="sw-dark-001" secondAttribute="leading" constant="-8" id="icon-c1"/>
+                            <constraint firstItem="img-dark-001" firstAttribute="centerY" secondItem="sw-dark-001" secondAttribute="centerY" id="icon-c2"/>
+                            <constraint firstItem="img-dark-001" firstAttribute="width" constant="22" id="icon-c3"/>
+                            <constraint firstItem="img-dark-001" firstAttribute="height" constant="22" id="icon-c4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="menu-navItem" hidesBackButton="YES"/>
@@ -123,6 +132,7 @@
                         <outlet property="lblSide" destination="lbl-side-001" id="outlet-lblSide"/>
                         <outlet property="btnStart" destination="btn-start-001" id="outlet-btnStart"/>
                         <outlet property="switchDark" destination="sw-dark-001" id="outlet-switchDark"/>
+                        <outlet property="imgDarkIcon" destination="img-dark-001" id="outlet-imgDarkIcon"/>
                         <segue destination="vc-game-001" kind="show" identifier="toGame" id="segue-toGame"/>
                     </connections>
                 </viewController>
@@ -253,7 +263,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
 
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score: 0" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-score-001">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-score-001">
                                 <rect key="frame" x="156" y="170" width="500" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

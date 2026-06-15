@@ -86,14 +86,12 @@
 
                             <constraint firstItem="img-west-001" firstAttribute="leading" secondItem="menu-safeArea" secondAttribute="leading" constant="30" id="c6"/>
                             <constraint firstItem="img-west-001" firstAttribute="centerY" secondItem="vc-menu-view" secondAttribute="centerY" constant="-14" id="c7"/>
-                            <!-- globe = 35% of screen height, square (R=C) -->
-                            <constraint firstItem="img-west-001" firstAttribute="height" secondItem="vc-menu-view" secondAttribute="height" multiplier="0.35" id="c8"/>
+                            <constraint firstItem="img-west-001" firstAttribute="height" secondItem="vc-menu-view" secondAttribute="width" multiplier="0.18" id="c8"/>
                             <constraint firstItem="img-west-001" firstAttribute="width" secondItem="img-west-001" secondAttribute="height" multiplier="1.0" id="c9"/>
 
                             <constraint firstItem="img-east-001" firstAttribute="trailing" secondItem="menu-safeArea" secondAttribute="trailing" constant="-30" id="c12"/>
                             <constraint firstItem="img-east-001" firstAttribute="centerY" secondItem="vc-menu-view" secondAttribute="centerY" constant="-14" id="c13"/>
-                            <!-- globe = 35% of screen height, square (R=C) -->
-                            <constraint firstItem="img-east-001" firstAttribute="height" secondItem="vc-menu-view" secondAttribute="height" multiplier="0.35" id="c14"/>
+                            <constraint firstItem="img-east-001" firstAttribute="height" secondItem="vc-menu-view" secondAttribute="width" multiplier="0.18" id="c14"/>
                             <constraint firstItem="img-east-001" firstAttribute="width" secondItem="img-east-001" secondAttribute="height" multiplier="1.0" id="c15"/>
 
                             <constraint firstItem="lbl-name-001" firstAttribute="centerX" secondItem="vc-menu-view" secondAttribute="centerX" id="c3"/>
@@ -106,7 +104,6 @@
 
                             <constraint firstItem="btn-start-001" firstAttribute="centerX" secondItem="vc-menu-view" secondAttribute="centerX" id="c20"/>
                             <constraint firstItem="btn-start-001" firstAttribute="bottom" secondItem="menu-safeArea" secondAttribute="bottom" constant="-18" id="c21"/>
-                            <!-- button width = 25% of screen width (CxR) -->
                             <constraint firstItem="btn-start-001" firstAttribute="width" secondItem="vc-menu-view" secondAttribute="width" multiplier="0.25" id="c22"/>
                             <constraint firstItem="btn-start-001" firstAttribute="height" constant="48" id="c23"/>
                         </constraints>
@@ -196,11 +193,9 @@
                             <constraint firstItem="lbl-pcscore-001" firstAttribute="trailing" secondItem="lbl-pcname-001" secondAttribute="trailing" id="gc7"/>
                             <constraint firstItem="lbl-pcscore-001" firstAttribute="top" secondItem="lbl-pcname-001" secondAttribute="bottom" constant="2" id="gc8"/>
 
-                            <!-- width = 20% of screen width (CxR multiplier) -->
                             <constraint firstItem="img-pcard-001" firstAttribute="centerX" secondItem="vc-game-view" secondAttribute="centerX" multiplier="0.5" id="gc9"/>
                             <constraint firstItem="img-pcard-001" firstAttribute="centerY" secondItem="vc-game-view" secondAttribute="centerY" constant="14" id="gc10"/>
                             <constraint firstItem="img-pcard-001" firstAttribute="width" secondItem="vc-game-view" secondAttribute="width" multiplier="0.2" id="gc11"/>
-                            <!-- height = width × 1.4 (standard card aspect ratio R/C) -->
                             <constraint firstItem="img-pcard-001" firstAttribute="height" secondItem="img-pcard-001" secondAttribute="width" multiplier="1.4" id="gc12"/>
 
                             <constraint firstItem="img-pccard-001" firstAttribute="centerX" secondItem="vc-game-view" secondAttribute="centerX" multiplier="1.5" id="gc13"/>
@@ -208,7 +203,6 @@
                             <constraint firstItem="img-pccard-001" firstAttribute="width" secondItem="vc-game-view" secondAttribute="width" multiplier="0.2" id="gc15"/>
                             <constraint firstItem="img-pccard-001" firstAttribute="height" secondItem="img-pccard-001" secondAttribute="width" multiplier="1.4" id="gc16"/>
 
-                            <!-- timer icon square (R=C), 4% of width -->
                             <constraint firstItem="lbl-clock-001" firstAttribute="centerX" secondItem="vc-game-view" secondAttribute="centerX" id="gc17"/>
                             <constraint firstItem="lbl-clock-001" firstAttribute="top" secondItem="game-safeArea" secondAttribute="top" constant="24" id="gc18"/>
                             <constraint firstItem="lbl-clock-001" firstAttribute="width" secondItem="vc-game-view" secondAttribute="width" multiplier="0.04" id="gc17b"/>
@@ -274,17 +268,16 @@
                         <viewLayoutGuide key="safeArea" id="summary-safeArea"/>
                         <color key="backgroundColor" red="0.04" green="0.04" blue="0.09" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="lbl-winner-001" firstAttribute="centerX" secondItem="vc-summary-view" secondAttribute="centerX" id="sc1"/>
+                            <constraint firstItem="lbl-winner-001" firstAttribute="leading" secondItem="summary-safeArea" secondAttribute="leading" constant="20" id="sc1b"/>
+                            <constraint firstItem="lbl-winner-001" firstAttribute="trailing" secondItem="summary-safeArea" secondAttribute="trailing" constant="-20" id="sc1c"/>
                             <constraint firstItem="lbl-winner-001" firstAttribute="centerY" secondItem="vc-summary-view" secondAttribute="centerY" constant="-46" id="sc2"/>
-                            <constraint firstItem="lbl-winner-001" firstAttribute="width" constant="600" id="sc1b"/>
 
-                            <constraint firstItem="lbl-score-001" firstAttribute="centerX" secondItem="vc-summary-view" secondAttribute="centerX" id="sc3"/>
+                            <constraint firstItem="lbl-score-001" firstAttribute="leading" secondItem="summary-safeArea" secondAttribute="leading" constant="20" id="sc3b"/>
+                            <constraint firstItem="lbl-score-001" firstAttribute="trailing" secondItem="summary-safeArea" secondAttribute="trailing" constant="-20" id="sc3c"/>
                             <constraint firstItem="lbl-score-001" firstAttribute="top" secondItem="lbl-winner-001" secondAttribute="bottom" constant="14" id="sc4"/>
-                            <constraint firstItem="lbl-score-001" firstAttribute="width" constant="500" id="sc3b"/>
 
                             <constraint firstItem="btn-back-001" firstAttribute="centerX" secondItem="vc-summary-view" secondAttribute="centerX" id="sc5"/>
                             <constraint firstItem="btn-back-001" firstAttribute="bottom" secondItem="summary-safeArea" secondAttribute="bottom" constant="-18" id="sc6"/>
-                            <!-- button width = 25% of screen width (CxR) -->
                             <constraint firstItem="btn-back-001" firstAttribute="width" secondItem="vc-summary-view" secondAttribute="width" multiplier="0.25" id="sc7"/>
                             <constraint firstItem="btn-back-001" firstAttribute="height" constant="48" id="sc8"/>
                         </constraints>

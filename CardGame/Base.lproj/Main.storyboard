@@ -28,7 +28,6 @@
         <scene sceneID="vc-menu-scene">
             <objects>
                 <viewController id="vc-menu-001" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <view key="view" contentMode="scaleToFill" id="vc-menu-view">
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,7 +123,6 @@
         <scene sceneID="vc-game-scene">
             <objects>
                 <viewController id="vc-game-001" customClass="GameController" customModuleProvider="target" sceneMemberID="viewController">
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <view key="view" contentMode="scaleToFill" id="vc-game-view">
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -232,7 +230,6 @@
         <scene sceneID="vc-summary-scene">
             <objects>
                 <viewController id="vc-summary-001" customClass="SummaryController" customModuleProvider="target" sceneMemberID="viewController">
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <view key="view" contentMode="scaleToFill" id="vc-summary-view">
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

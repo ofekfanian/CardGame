@@ -30,6 +30,9 @@ class GameController: UIViewController {
     private let redBack   = UIImage(named: "card_back_red")
     private let blackBack = UIImage(named: "card_back")
 
+    private var playerGlass = UIVisualEffectView()
+    private var pcGlass     = UIVisualEffectView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,13 +42,14 @@ class GameController: UIViewController {
 
         playerDrawsRed = (playerSide == "East Side")
 
-        imgPlayerCard.contentMode  = .scaleAspectFit
-        imgPlayerCard.clipsToBounds = true
-        imgPlayerCard.backgroundColor = .white
-        imgPCCard.contentMode  = .scaleAspectFit
-        imgPCCard.clipsToBounds = true
-        imgPCCard.backgroundColor = .white
+        imgPlayerCard.contentMode     = .scaleAspectFit
+        imgPlayerCard.clipsToBounds   = true
+        imgPlayerCard.backgroundColor = .clear
+        imgPCCard.contentMode         = .scaleAspectFit
+        imgPCCard.clipsToBounds       = true
+        imgPCCard.backgroundColor     = .clear
 
+        setupCardGlass()
         setupObservers()
 
         updateUI()
@@ -57,7 +61,9 @@ class GameController: UIViewController {
         super.viewDidLayoutSubviews()
         let r = imgPlayerCard.frame.width * 0.07  // C × R
         imgPlayerCard.layer.cornerRadius = r
-        imgPCCard.layer.cornerRadius = r
+        imgPCCard.layer.cornerRadius     = r
+        playerGlass.layer.cornerRadius   = r
+        pcGlass.layer.cornerRadius       = r
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -111,6 +117,37 @@ class GameController: UIViewController {
         lblPCName.text     = "PC"
     }
 
+    private func setupCardGlass() {
+        let blur = UIBlurEffect(style: .systemUltraThinMaterialLight)
+
+        playerGlass = makeGlass(blur)
+        view.insertSubview(playerGlass, belowSubview: imgPlayerCard)
+        NSLayoutConstraint.activate([
+            playerGlass.leadingAnchor.constraint(equalTo: imgPlayerCard.leadingAnchor),
+            playerGlass.trailingAnchor.constraint(equalTo: imgPlayerCard.trailingAnchor),
+            playerGlass.topAnchor.constraint(equalTo: imgPlayerCard.topAnchor),
+            playerGlass.bottomAnchor.constraint(equalTo: imgPlayerCard.bottomAnchor)
+        ])
+
+        pcGlass = makeGlass(blur)
+        view.insertSubview(pcGlass, belowSubview: imgPCCard)
+        NSLayoutConstraint.activate([
+            pcGlass.leadingAnchor.constraint(equalTo: imgPCCard.leadingAnchor),
+            pcGlass.trailingAnchor.constraint(equalTo: imgPCCard.trailingAnchor),
+            pcGlass.topAnchor.constraint(equalTo: imgPCCard.topAnchor),
+            pcGlass.bottomAnchor.constraint(equalTo: imgPCCard.bottomAnchor)
+        ])
+    }
+
+    private func makeGlass(_ blur: UIBlurEffect) -> UIVisualEffectView {
+        let v = UIVisualEffectView(effect: blur)
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.clipsToBounds = true
+        v.layer.borderWidth = 1.0
+        v.layer.borderColor = UIColor.white.withAlphaComponent(0.45).cgColor
+        return v
+    }
+
     private func updateUI() {
         lblPlayerScore.text = "\(playerScore)"
         lblPCScore.text     = "\(pcScore)"
@@ -123,14 +160,14 @@ class GameController: UIViewController {
     private func flipToBack(_ imageView: UIImageView, back: UIImage?, flipDirection: UIView.AnimationOptions) {
         UIView.transition(with: imageView, duration: 0.35, options: flipDirection) {
             imageView.image = back
-            imageView.backgroundColor = .white
+            imageView.backgroundColor = .clear
         }
     }
 
     private func flipToFace(_ imageView: UIImageView, card: Card, flipDirection: UIView.AnimationOptions) {
         UIView.transition(with: imageView, duration: 0.35, options: flipDirection) {
             imageView.image = UIImage(named: card.imageName)
-            imageView.backgroundColor = .white
+            imageView.backgroundColor = .clear
         }
     }
 

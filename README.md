@@ -1,3 +1,4 @@
+```markdown
 <div align="center">
 
 # 🃏 CardGame
@@ -34,12 +35,12 @@
   <tr>
     <td align="center">
 
-https://github.com/user-attachments/assets/4dde2420-dca7-4bd7-891c-5ad02f2536f0
+https://github.com/user-attachments/assets/76d53a34-a9d7-4919-9b14-a8ac2b9d1e33
 
 </td>
     <td align="center">
 
-https://github.com/user-attachments/assets/2dd74939-5ed5-4554-836d-054e3eaf733f
+https://github.com/user-attachments/assets/22757e65-04a5-48ca-83f3-7ec8e14cee48
 
 </td>
   </tr>
@@ -94,3 +95,4 @@ CardGame/
 <div align="center">
   <b>Created by Ofek Fanian</b>
 </div>
+```

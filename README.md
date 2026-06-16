@@ -19,7 +19,7 @@
 
 ## 📌 About The Project
 
-**CardGame** is a two-player War-style card game where your side of the board is determined by your real-world location. Players on the East side get red cards, West side gets black cards. Each round, two cards are revealed automatically — the stronger card wins points. After 10 rounds, the winner is displayed on the summary screen.
+**CardGame** is a two-player War-style card game where your side of the board is determined by your real-world location. Players on the East side get red cards, West side gets black cards. Each round, two cards are revealed automatically; the stronger card wins points. After 10 rounds, the winner is displayed on the summary screen.
 
 ---
 
@@ -50,12 +50,12 @@ https://github.com/user-attachments/assets/22757e65-04a5-48ca-83f3-7ec8e14cee48
 
 ## ✨ Key Features
 
-- **📍 Location-Based Sides** — Uses CoreLocation to detect your longitude. East of `34.817549168324334` → red deck (♥ ♦), West → black deck (♠ ♣)
-- **🃏 Automatic Rounds** — No buttons on the game screen. Cards flip every 5 seconds automatically for 10 rounds
-- **🏆 Scoring System** — Higher card wins the round and earns its value as points. Ace = 14 (strongest). Tie = no points
-- **🔁 Flip Animations** — Smooth `UIView` transition animations on every card reveal and hide
-- **💾 Persistent Name** — Player name saved via `UserDefaults` and restored on next launch
-- **🎯 CxR Pattern** — All corner radii set proportionally in `viewDidLayoutSubviews` per lecturer spec
+- **📍 Location-Based Sides** — Uses CoreLocation to detect your longitude. East of `34.817549168324334`: red deck (♥ ♦), West: black deck (♠ ♣)
+- **🃏 Automatic Rounds** — No buttons on the game screen. Cards flip every 5 seconds automatically for 10 rounds.
+- **🏆 Scoring System** — Higher card wins the round and earns its value as points. Ace = 14 (strongest). Tie = no points.
+- **🔁 Flip Animations** — Smooth `UIView` transition animations on every card reveal.
+- **💾 Persistent Name** — Player name saved via `UserDefaults` and restored on next launch.
+- **🎯 CxR Pattern** — All corner radii set proportionally in `viewDidLayoutSubviews` per lecturer spec.
 
 ---
 
@@ -84,10 +84,10 @@ CardGame/
 
 ## ⚙️ How to Run
 
-1. Clone this repository
-2. Open `CardGame.xcodeproj` in **Xcode**
-3. Select a simulator or physical device
-4. Hit **⌘R** to build and run
+1. Clone this repository.
+2. Open `CardGame.xcodeproj` in **Xcode**.
+3. Select a simulator or physical device.
+4. Hit **⌘R** to build and run.
 
 ---
 

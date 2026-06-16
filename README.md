@@ -50,12 +50,12 @@ https://github.com/user-attachments/assets/22757e65-04a5-48ca-83f3-7ec8e14cee48
 
 ## ✨ Key Features
 
-- **📍 Location-Based Sides** — Uses CoreLocation to detect your longitude. East of `34.817549168324334`: red deck (♥ ♦), West: black deck (♠ ♣)
-- **🃏 Automatic Rounds** — No buttons on the game screen. Cards flip every 5 seconds automatically for 10 rounds.
-- **🏆 Scoring System** — Higher card wins the round and earns its value as points. Ace = 14 (strongest). Tie = no points.
-- **🔁 Flip Animations** — Smooth `UIView` transition animations on every card reveal.
-- **💾 Persistent Name** — Player name saved via `UserDefaults` and restored on next launch.
-- **🎯 CxR Pattern** — All corner radii set proportionally in `viewDidLayoutSubviews` per lecturer spec.
+- **📍 Location-Based Sides** Uses CoreLocation to detect your longitude. East of `34.817549168324334`: red deck (♥ ♦), West: black deck (♠ ♣)
+- **🃏 Automatic Rounds** No buttons on the game screen. Cards flip every 5 seconds automatically for 10 rounds.
+- **🏆 Scoring System** Higher card wins the round and earns its value as points. Ace = 14 (strongest). Tie = no points.
+- **🔁 Flip Animations** Smooth `UIView` transition animations on every card reveal.
+- **💾 Persistent Name** Player name saved via `UserDefaults` and restored on next launch.
+- **🎯 CxR Pattern** All corner radii set proportionally in `viewDidLayoutSubviews` per lecturer spec.
 
 ---
 

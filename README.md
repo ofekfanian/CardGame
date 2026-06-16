@@ -25,10 +25,13 @@
 
 ## 🎬 Demo
 
-
+### ☀️ Light Mode
 
 https://github.com/user-attachments/assets/0bb0fde7-8877-412b-a5d9-ee198d888b81
 
+### 🌙 Dark Mode
+
+https://github.com/user-attachments/assets/2dd74939-5ed5-4554-836d-054e3eaf733f
 
 ---
 

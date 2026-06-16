@@ -1,4 +1,3 @@
-```markdown
 <div align="center">
 
 # 🃏 CardGame
@@ -95,4 +94,3 @@ CardGame/
 <div align="center">
   <b>Created by Ofek Fanian</b>
 </div>
-```

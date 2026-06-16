@@ -25,13 +25,26 @@
 
 ## 🎬 Demo
 
-### ☀️ Light Mode
+<div align="center">
+<table>
+  <tr>
+    <th>☀️ Light Mode</th>
+    <th>🌙 Dark Mode</th>
+  </tr>
+  <tr>
+    <td align="center">
 
-https://github.com/user-attachments/assets/0bb0fde7-8877-412b-a5d9-ee198d888b81
+https://github.com/user-attachments/assets/4dde2420-dca7-4bd7-891c-5ad02f2536f0
 
-### 🌙 Dark Mode
+</td>
+    <td align="center">
 
 https://github.com/user-attachments/assets/2dd74939-5ed5-4554-836d-054e3eaf733f
+
+</td>
+  </tr>
+</table>
+</div>
 
 ---
 
@@ -75,7 +88,6 @@ CardGame/
 2. Open `CardGame.xcodeproj` in **Xcode**
 3. Select a simulator or physical device
 4. Hit **⌘R** to build and run
-
 
 ---
 

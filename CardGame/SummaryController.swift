@@ -53,13 +53,13 @@ class SummaryController: UIViewController {
         NSLayoutConstraint.activate([
             leftImg.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.15),
             leftImg.heightAnchor.constraint(equalTo: leftImg.widthAnchor),
-            leftImg.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
-            leftImg.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            leftImg.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -24),
+            leftImg.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 48),
 
             rightImg.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.15),
             rightImg.heightAnchor.constraint(equalTo: rightImg.widthAnchor),
-            rightImg.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
-            rightImg.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            rightImg.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -24),
+            rightImg.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -48)
         ])
     }
 

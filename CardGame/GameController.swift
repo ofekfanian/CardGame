@@ -38,6 +38,7 @@ class GameController: UIViewController {
 
         print("Hi Game!")
 
+        applyBackground()
         setupUI()
 
         playerDrawsRed = (playerSide == "East Side")
@@ -50,6 +51,9 @@ class GameController: UIViewController {
         imgPCCard.backgroundColor     = .clear
 
         setupCardGlass()
+        let isDark = traitCollection.userInterfaceStyle == .dark
+        playerGlass.isHidden = !isDark
+        pcGlass.isHidden     = !isDark
         setupObservers()
 
         updateUI()
@@ -99,16 +103,16 @@ class GameController: UIViewController {
 
     private func setupUI() {
         lblPlayerName.font      = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        lblPlayerName.textColor = UIColor(white: 0.6, alpha: 1)
+        lblPlayerName.textColor = .secondaryLabel
 
         lblPCName.font      = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        lblPCName.textColor = UIColor(white: 0.6, alpha: 1)
+        lblPCName.textColor = .secondaryLabel
 
         lblPlayerScore.font      = UIFont.systemFont(ofSize: 52, weight: .heavy)
-        lblPlayerScore.textColor = .white
+        lblPlayerScore.textColor = .label
 
         lblPCScore.font      = UIFont.systemFont(ofSize: 52, weight: .heavy)
-        lblPCScore.textColor = .white
+        lblPCScore.textColor = .label
 
         lblTimer.font      = UIFont.monospacedDigitSystemFont(ofSize: 32, weight: .bold)
         lblTimer.textColor = UIColor(red: 0.22, green: 0.38, blue: 0.76, alpha: 1)
@@ -118,6 +122,7 @@ class GameController: UIViewController {
     }
 
     private func setupCardGlass() {
+        let isDark = traitCollection.userInterfaceStyle == .dark
         let blur = UIBlurEffect(style: .systemUltraThinMaterialLight)
 
         playerGlass = makeGlass(blur)
@@ -144,7 +149,7 @@ class GameController: UIViewController {
         v.translatesAutoresizingMaskIntoConstraints = false
         v.clipsToBounds = true
         v.layer.borderWidth = 1.0
-        v.layer.borderColor = UIColor.white.withAlphaComponent(0.45).cgColor
+        v.layer.borderColor = UIColor.label.withAlphaComponent(0.15).cgColor
         return v
     }
 
